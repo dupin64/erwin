@@ -1,2 +1,2 @@
-# erwin
-A web-based application to save all my favorite movies.
+# Erwin Movie Library
+A fun project to keep track of all my favorite movies.
