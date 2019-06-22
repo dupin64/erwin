@@ -1,4 +1,4 @@
-package com.dupin.erwin.erwinapp;
+package com.dupin.erwin;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
