@@ -24,4 +24,9 @@ public class MoviesController {
     public Optional getMovies(@RequestParam("id")Long id){
         return moviesService.findById(id);
     }
+
+    @RequestMapping("/profiles/movies/{title}")
+    public Movies getMovieByTitle(@RequestParam("title") String title){
+        return moviesService.findByTitle(title);
+    }
 }

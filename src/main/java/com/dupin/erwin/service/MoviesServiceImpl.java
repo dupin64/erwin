@@ -22,4 +22,6 @@ public class MoviesServiceImpl implements MoviesService {
     public Optional findById(Long id) {
         return movieRepository.findById(id);
     }
+
+    public Movies findByTitle(String title){ return movieRepository.findByMovieTitle(title);}
 }
