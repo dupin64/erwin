@@ -33,4 +33,9 @@ public class MoviesServiceImpl implements MoviesService {
     public Movies addMovie(Movies movie){
         return movieRepository.save(movie);
     }
+
+    public void deleteMovie(Movies movie){
+        movieRepository.delete(movie);
+    }
+
 }
