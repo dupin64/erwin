@@ -8,5 +8,7 @@ import org.springframework.stereotype.Repository;
 public interface MovieRepository extends JpaRepository<Movies, Long> {
 
     Movies findByMovieTitle(String title);
+    void deleteById(Long id);
+
 
 }

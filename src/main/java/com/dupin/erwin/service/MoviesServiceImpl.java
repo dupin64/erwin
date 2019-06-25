@@ -24,4 +24,13 @@ public class MoviesServiceImpl implements MoviesService {
     }
 
     public Movies findByTitle(String title){ return movieRepository.findByMovieTitle(title);}
+
+    @Override
+    public void deleteById(Long id) {
+         movieRepository.deleteById(id);
+    }
+
+    public Movies addMovie(Movies movie){
+        return movieRepository.save(movie);
+    }
 }
