@@ -1,40 +1,72 @@
 package com.dupin.erwin.model;
 
+import com.dupin.erwin.model.audit.DateAudit;
+
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 
-@Table(name="User")
-public class User {
+//ensuring that the username and passwords are unique
+@Table(name="users", uniqueConstraints = {
+        @UniqueConstraint(columnNames = {
+                "username"
+        }),
+        @UniqueConstraint(columnNames = {
+                "email"
+        })
+})
+public class User extends DateAudit {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Long id;
+    private Long id;
 
+    @Size(max = 13)
     @Column(name = "first_name")
-    String firstName;
+    private String firstName;
 
+    @Size(max = 13)
     @Column(name = "last_name")
-    String lastName;
+    private String lastName;
 
+    @NotBlank
+    @Size(max = 31)
+    @Email
     @Column(name = "email")
-    String email;
+    private String email;
 
+    @NotBlank
+    @Size(max = 13, min = 5)
     @Column(name = "username")
-    String username;
+    private String username;
 
-    String password;
+    @NotBlank
+    @Size(max = 23, min = 7)
+    private String password;
 
-    @Transient
-    String passwordConfirm;
 
-    @ManyToMany
-    Set<Role> roles;
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "user_roles",
+               joinColumns = @JoinColumn(name = "user_id"),
+                inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles = new HashSet<>();
 
 
     public User() {
         super();
+    }
+
+    public User( String firstName, String lastName, String email, String username, String password) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.username = username;
+        this.password = password;
     }
 
     public User(String email, String username) {
@@ -90,13 +122,6 @@ public class User {
         this.password = password;
     }
 
-    public String getPasswordConfirm() {
-        return passwordConfirm;
-    }
-
-    public void setPasswordConfirm(String passwordConfirm) {
-        this.passwordConfirm = passwordConfirm;
-    }
 
     public Set<Role> getRoles() {
         return roles;

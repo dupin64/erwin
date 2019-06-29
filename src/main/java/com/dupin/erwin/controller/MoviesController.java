@@ -17,19 +17,19 @@ public class MoviesController {
     @Autowired
     MoviesServiceImpl moviesService;
 
-    @RequestMapping("/profiles/movies")
+    @GetMapping("/profiles/movies")
     public Iterable<Movies> getAllMovies(){
         return moviesService.findAll();
     }
 
-    @RequestMapping("/profiles/movies/{id}")
+    @GetMapping("/profiles/movies/{id}")
     public Object getMovieById(@PathVariable(value = "id") Long movieId) throws Throwable {
 
         return moviesService.findById(movieId)
                 .orElseThrow(() -> new ResourceNotFoundException("Movie", "id", movieId ));
     }
 
-    @RequestMapping("/profiles/movies/{title}")
+    @GetMapping("/profiles/movies/{title}")
     public Movies getMovieByTitle(@PathVariable String title){
         return moviesService.findByTitle(title);
     }
