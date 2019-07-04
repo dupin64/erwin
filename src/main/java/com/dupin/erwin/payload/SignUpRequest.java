@@ -13,12 +13,24 @@ public class SignUpRequest {
     private String lasttName;
 
     @NotBlank
+    @Size(min = 5, max = 17)
+    private String username;
+
+    @NotBlank
     @Size(max = 37)
     private String email;
 
     @NotBlank
     @Size(min = 7, max = 31)
     private String password;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     public String getFirstName() {
         return firstName;
