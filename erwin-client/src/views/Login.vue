@@ -25,8 +25,8 @@ export default {
     },
     methods: {
        login () {
-           console.log(this.username);
-           console.log(this.password);
+           //console.log(this.username);
+          // console.log(this.password);
        }
     }
     
