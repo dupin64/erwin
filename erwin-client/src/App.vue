@@ -1,11 +1,22 @@
 <template>
   <div id="app">
     <div><img src="./assets/erwin_logo.png" alt="erwin logo"></div>
-      <nav>
-       <router-link to="/home">Home</router-link> |
-      <router-link to="/about">About</router-link> |
-      <router-link to="/login">Login</router-link>
-    </nav>
+     
+      <b-nav tabs align="center">
+
+        <b-nav-item>
+          <router-link to="/home">Home</router-link> |
+        </b-nav-item>
+
+        <b-nav-item>
+          <router-link to="/about">About</router-link> |
+        </b-nav-item>
+
+        <b-nav-item>
+          <router-link to="/login">Login</router-link> |
+        </b-nav-item>
+
+    </b-nav>
     <router-view />
    
   </div>
@@ -30,10 +41,10 @@ export default {
     background-color: #dddddd;
   }
 
-  h1 {
+  /* h1 {
     padding: 0;
     margin-top: 0;
-  }
+  } */
 
   #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -44,7 +55,7 @@ export default {
   margin-top: 60px;
   }
 
-  nav {
+  /* nav {
     padding: 20px 20px 20px 0;
   }
 
@@ -57,7 +68,7 @@ export default {
     font-weight: bold;
     margin-right: 15px;
 
-  }
+  } */
 
   
 </style>
