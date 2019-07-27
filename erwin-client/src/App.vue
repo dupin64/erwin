@@ -16,6 +16,10 @@
           <router-link to="/login">Login</router-link> |
         </b-nav-item>
 
+        <b-nav-item>
+          <router-link to="/library">Library</router-link> |
+        </b-nav-item>
+
     </b-nav>
     <router-view />
    
@@ -33,8 +37,8 @@ export default {
 <style>
 
   img {
-    height:200px;
-    width: 200px;
+    height:100px;
+    width: 100px;
   }
 
   body {
