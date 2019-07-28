@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import Login from './views/Login.vue'
 import Library from './components/MovieLibrary.vue'
+import Shelf from './components/MovieShelf.vue'
 
 Vue.use(Router)
 
@@ -33,6 +34,12 @@ export default new Router({
       path: '/library',
       name: 'library',
       component: Library
+      
+    },
+    {
+      path: '/shelf',
+      name: 'shelf',
+      component: Shelf
       
     }
   ]
